@@ -1,20 +1,19 @@
 const User = require("../models/User");
 
-// @desc     Register user
-// @route    POST /api/v1/auth/register
-// @access   Public
+// @desc    Register user
+// @route   POST /api/v1/auth/register
+// @access  Public
 exports.register = async (req, res, next) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, telephone, email, password, role } = req.body;
     const user = await User.create({
       name,
+      telephone,
       email,
       password,
       role,
     });
 
-    // const token = user.getSignedJwtToken();
-    // res.status(200).json({ success: true, token });
     sendTokenResponse(user, 200, res);
   } catch (err) {
     res.status(400).json({ success: false });
@@ -49,8 +48,6 @@ exports.login = async (req, res, next) => {
         .json({ success: false, msg: "Invalid credentials" });
     }
 
-    // const token = user.getSignedJwtToken();
-    // res.status(200).json({ success: true, token });
     sendTokenResponse(user, 200, res);
   } catch (err) {
     return res.status(401).json({
@@ -80,9 +77,9 @@ const sendTokenResponse = (user, statusCode, res) => {
   });
 };
 
-// @desc     Get current Logged in user
-// @route    POST /api/v1/auth/me
-// @access   Private
+// @desc    Get current Logged in user
+// @route   GET /api/v1/auth/me
+// @access  Private
 exports.getMe = async (req, res, next) => {
   const user = await User.findById(req.user.id);
 
@@ -92,9 +89,9 @@ exports.getMe = async (req, res, next) => {
   });
 };
 
-// @desc     Log user out / clear cookie
-// @route    GET /api/v1/auth/logout
-// @access   Private
+// @desc    Log user out / clear cookie
+// @route   GET /api/v1/auth/logout
+// @access  Private
 exports.logout = async (req, res, next) => {
   res.cookie("token", "none", {
     expires: new Date(Date.now() + 10 * 1000),
