@@ -18,8 +18,8 @@ dotenv.config({ path: "./config/config.env" });
 connectDB();
 
 // Route files
-const hospitals = require("./routes/hospitals");
-const appointments = require("./routes/appointments");
+const providers = require("./routes/providers");
+const bookings = require("./routes/bookings");
 const auth = require("./routes/auth");
 
 const app = express();
@@ -28,15 +28,24 @@ const swaggerOptions = {
   swaggerDefinition: {
     openapi: "3.0.0",
     info: {
-      title: "Library API",
+      title: "Rental Car Booking API", // ปรับชื่อ API
       version: "1.0.0",
-      description: "A simple Express project07 API",
+      description: "A simple Express Car Rental API",
     },
     servers: [
       {
         url: "http://localhost:5000/api/v1",
       },
     ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
   },
   apis: ["./routes/*.js"],
 };
@@ -73,8 +82,8 @@ app.use(hpp());
 app.use(cors());
 
 // Mount routers
-app.use("/api/v1/hospitals", hospitals);
-app.use("/api/v1/appointments", appointments);
+app.use("/api/v1/providers", providers);
+app.use("/api/v1/bookings", bookings);
 app.use("/api/v1/auth", auth);
 
 const PORT = process.env.PORT || 5000;
