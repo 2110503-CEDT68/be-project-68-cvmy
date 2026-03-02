@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "e5557839-6300-443f-a599-4d0bcb15cb08",
     "name": "Project#7 Rental Car Booking",
-    "description": "Postman Collection สำหรับรันพรีเซนต์ 12 ข้อ ที่ออกแบบมาให้รันซ้ำกี่รอบก็ผ่าน 100% โดยอัตโนมัติ",
+    "description": "Postman Collection สำหรับรันพรีเซนต์",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "52457128",
     "_collection_link": "https://go.postman.co/collection/52457128-e5557839-6300-443f-a599-4d0bcb15cb08?source=collection_link"
