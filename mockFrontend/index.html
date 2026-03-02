@@ -9,6 +9,7 @@
 <body>
   <h1>Car Rental Demo</h1>
   <div id="user-info"></div>
+  <button id="logout-btn" class="hidden">Logout</button>
 
   <div id="auth-container">
     <h2>Authenticate</h2>
@@ -37,6 +38,15 @@
   <div id="providers-container" class="hidden">
     <h2>Providers</h2>
     <ul id="providers-list"></ul>
+    
+    <div id="admin-provider-form" class="hidden">
+      <h3>Add New Provider (Admin)</h3>
+      <input type="text" id="provider-name" placeholder="Provider Name" required />
+      <input type="text" id="provider-address" placeholder="Address" required />
+      <input type="text" id="provider-tel" placeholder="Telephone" required />
+      <button id="add-provider-btn">Add Provider</button>
+      <p id="provider-error" class="error"></p>
+    </div>
   </div>
 
   <div id="booking-container" class="hidden">
@@ -45,6 +55,7 @@
     <input type="datetime-local" id="booking-date" required />
     <button id="create-booking">Book</button>
     <p id="booking-error" class="error"></p>
+    <ul id="bookings-list"></ul>
   </div>
 
   <script src="app.js"></script>
