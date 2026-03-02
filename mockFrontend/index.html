@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mock Frontend Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Car Rental Demo</h1>
+  <div id="user-info"></div>
+
+  <div id="auth-container">
+    <h2>Authenticate</h2>
+    <button id="show-login">Login</button>
+    <button id="show-register">Register</button>
+
+    <form id="login-form" class="hidden">
+      <h3>Login</h3>
+      <input type="email" id="login-email" placeholder="Email" required />
+      <input type="password" id="login-password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <p id="login-error" class="error"></p>
+    </form>
+
+    <form id="register-form" class="hidden">
+      <h3>Register</h3>
+      <input type="text" id="reg-name" placeholder="Name" required />
+      <input type="text" id="reg-telephone" placeholder="Telephone" required />
+      <input type="email" id="reg-email" placeholder="Email" required />
+      <input type="password" id="reg-password" placeholder="Password" required />
+      <button type="submit">Register</button>
+      <p id="reg-error" class="error"></p>
+    </form>
+  </div>
+
+  <div id="providers-container" class="hidden">
+    <h2>Providers</h2>
+    <ul id="providers-list"></ul>
+  </div>
+
+  <div id="booking-container" class="hidden">
+    <h2>Create Booking</h2>
+    <select id="provider-select"></select>
+    <input type="datetime-local" id="booking-date" required />
+    <button id="create-booking">Book</button>
+    <p id="booking-error" class="error"></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
